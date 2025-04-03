@@ -20,9 +20,3 @@ This project is a software tool that helps students learn more efficiently by au
 - Hugging Face Transformers (for note and quiz generation)
 - Streamlit or Gradio (for UI - optional)
 
-## Installation
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/your-username/lecture-study-tool.git
-   cd lecture-study-tool
