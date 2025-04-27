@@ -6,6 +6,7 @@ This project is a software tool that helps students learn more efficiently by au
 
 - **Voice-to-Text Transcription**  
   Transcribes video/audio content into accurate text using advanced speech recognition.
+  (Model:VOSK https://alphacephei.com/vosk/models/vosk-model-en-us-0.22-lgraph.zip)
 
 - **Note Generator**  
   Summarizes the transcribed text into structured, easy-to-read study notes.
