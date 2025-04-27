@@ -50,7 +50,7 @@ def main():
 
         # Summarized Key Points
         summarized_text = summarize_chunk(chunk)
-        print(f"- {summarized_text.strip()}")
+        print(f"\n- {summarized_text.strip()}")
 
 if __name__ == "__main__":
     main()
