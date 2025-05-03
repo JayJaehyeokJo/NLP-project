@@ -9,7 +9,6 @@ import nltk
 from transcribe import convert_mp3_to_wav
 from notes_converter import chunk_text, summarize_chunk
 from qa_generator import load_qa_model, process_long_document
-# import transcribe_live
 
 # Download needed NLTK data
 nltk.download('punkt')
