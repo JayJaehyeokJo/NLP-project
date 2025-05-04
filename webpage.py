@@ -35,7 +35,6 @@ def transcribe_audio(audio_file):
     rec.SetWords(True)
 
     results = []
-    # progress(0, desc="Starting transcription...")
     while True:
         data = wf.readframes(4000)
         if len(data) == 0:
@@ -51,17 +50,14 @@ def transcribe_audio(audio_file):
 def generate_notes(text):
     chunks = chunk_text(text)
     notes = []
-    # progress(0.5, desc="Generating notes...")
     for chunk in chunks:
         notes.append(summarize_chunk(chunk))
-
-    # progress(1.0, desc="Notes generation complete!")
     return "\n\n".join(f"- {note}" for note in notes)
 
 
 def process_audio(audio_file):
     progress = gr.Progress(track_tqdm=True)
-    yield gr.update(visible=False), gr.update(visible=False), gr.update(visible=False)
+    yield gr.update(visible=True), gr.update(visible=True), gr.update(visible=False)
 
     progress(0, desc="Starting transcription...")
     transcription = transcribe_audio(audio_file)
@@ -97,7 +93,7 @@ def process_audio(audio_file):
 
 def generate_questions(notes):
     progress = gr.Progress(track_tqdm=True)
-    yield gr.update(visible=False), gr.update(visible=False)
+    yield gr.update(visible=True), gr.update(visible=True)
 
     with open(notes.name, "r", encoding="utf-8") as f:
         notes_text = f.read()
@@ -120,14 +116,14 @@ def generate_questions(notes):
             qa_pairs.append((question, answer))
 
     # combined Q/A
-    combined_path = "combined_qa.txt"
+    combined_path = "answers.txt"
     with open(combined_path, "w", encoding="utf-8") as f:
         for i, (question, answer) in enumerate(qa_pairs):
             f.write(f"Q{i+1}: {question}\n")
             f.write(f"A{i+1}: {answer}\n\n")
 
     # only questions
-    qa_path = "generated_questions.txt"
+    qa_path = "questions.txt"
     with open(qa_path, "w", encoding="utf-8") as f:
         for i, question in enumerate(questions):
             f.write(f"Q{i+1}: {question}\n")
@@ -139,14 +135,6 @@ def generate_questions(notes):
         gr.update(value=qa_path, visible=True)
     )
 
-
-
-# theme = Base(
-  #  primary_hue="blue",
-   # secondary_hue="red",
-    # neutral_hue="slate",
-    # font="monospace"
-# )
 
 # Gradio Interface
 with gr.Blocks(theme=Base(primary_hue="blue", secondary_hue="red", neutral_hue="slate", font="monospace")) as demo:
