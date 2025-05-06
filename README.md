@@ -18,7 +18,7 @@ This project is a software tool that helps students learn more efficiently by au
 ## Tech Stack
 
 - Python
-- OpenAI Whisper (for transcription)
+- Vosk (for transcription)
 - Hugging Face Transformers (for note and quiz generation)
-- Streamlit or Gradio (for UI - optional)
+- Gradio (for UI)
 
