@@ -11,7 +11,10 @@ from notes_converter import chunk_text, summarize_chunk
 from qa_generator import load_qa_model, process_long_document
 
 # Download needed NLTK data
-nltk.download('punkt')
+try:
+    nltk.data.find('qa_generator_model/tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 nltk.download('stopwords')
 # path to vosk model
 MODEL_PATH = "vosk-model-en-us-0.22-lgraph"
@@ -131,8 +134,8 @@ def generate_questions(notes):
     progress(1.0, desc="Finished!")
 
     yield (
-        gr.update(value=combined_path, visible=True),
-        gr.update(value=qa_path, visible=True)
+        gr.update(value=qa_path, visible=True),
+        gr.update(value=combined_path, visible=True)
     )
 
 
