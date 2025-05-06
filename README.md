@@ -13,7 +13,7 @@ This project is a software tool that helps students learn more efficiently by au
 
 - **Quiz Generator**  
   Creates questions from the notes to help users test their understanding.
-  (Model: https://drive.google.com/drive/folders/1N0xvMcOiCkkopFXN0GiYCYsbh5I1lYYg?usp=drive_link)
+  (Model: https://drive.google.com/drive/folders/1K9eEjrXaXPrnlC47GkkZUQfKaMzFBdDu?usp=drive_link)
 
 ## Tech Stack
 
